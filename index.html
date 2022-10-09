@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note_App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="popup_box">
+        <div class="popup">
+            <div class="content">
+                <header>
+                    <p>Add a new Note</p>
+                    <i>+</i>
+                </header>
+                <form onsubmit="return false;">
+                    <div class="row title">
+                        <label>Title</label>
+                        <input type="text">
+                    </div>
+                    <div class="row description">
+                        <label>Description</label>
+                        <textarea class="textarea_input"></textarea>
+                    </div>
+                    <button id="addNoteBtn">Add Note</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="view_box">
+        <div class="view_card">
+            <div class="content">
+                <header>
+                    <p>View a Note</p>
+                    <i onclick="closeShowNote();">+</i>
+                </header>
+                <div class="show_det">
+                    <div class="row">
+                        <label>Title</label>
+                        <div class="view_title">
+                            <!-- title show here -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label>Description</label>
+                        <div class="view_description">
+                            <!-- description show here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+    <div class="main">
+        <div class="add_note">
+            <i class="icon">+</i>
+            <p>Add new note</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

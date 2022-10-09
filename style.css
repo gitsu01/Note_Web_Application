@@ -1,0 +1,300 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600&display=swap');
+
+/* root inisilize */
+:root
+{
+    --primary_col: #31E1F7;
+    --white_col: #fff;
+    --white_gray: #eee;
+    --dark_col: #040303;
+    --red_gray: #575757;
+}
+
+/* global css */
+*
+{
+    margin: 0;
+    color: var(--dark_col);
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* body css here */
+body
+{
+    background-color: var(--primary_col);
+    overflow-x: hidden;
+}
+
+/* Change scrollbar */
+body::-webkit-scrollbar,
+.textarea_input::-webkit-scrollbar
+{
+    width: 7px;
+}
+body::-webkit-scrollbar-thumb,
+.textarea_input::-webkit-scrollbar-thumb
+{
+    background-color: var(--dark_col);
+}
+body::-webkit-scrollbar-track,
+.textarea_input::-webkit-scrollbar-track
+{
+    border-left: 1px solid var(--dark_col);
+    background-color: var(--white_col);
+}
+
+/* index page css */
+.main
+{
+    margin: 50px;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, 265px);
+}
+.main .note,
+.main .add_note
+{
+    height: 250px;
+    border: 2px dashed var(--primary_col);
+    background-color: var(--white_col);
+    padding: 15px 20px 20px;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+/* add note box */
+.add_note,
+.add_note .icon
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+.add_note .icon
+{
+    width: 70px;
+    height: 70px;
+    font-size: 36px;
+    color: var(--primary_col);
+    border-radius: 50%;
+    border: 1px dashed var(--primary_col);
+}
+.add_note p
+{
+    color: var(--primary_col);
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+/* Details span */
+.details span
+{
+    max-height: 148px;
+    overflow: hidden;
+}
+
+/* notes css */
+.note
+{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.note p
+{
+    font-size: 22px;
+    font-weight: 500;
+}
+.note span
+{
+    color: var(--red_gray);
+    font-size: 16px;
+    display: block;
+    margin-top: 5px;
+}
+.note .bottom_content
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--red_gray);
+    padding-top: 6px;
+    font-size: 14px;
+}
+.bottom_content .setting .icon
+{
+    cursor: pointer;
+}
+
+/* setting menu css */
+.setting
+{
+    position: relative;
+}
+.setting ul{
+    padding: 0;
+    position: absolute;
+    list-style: none;
+    bottom: 0;
+    right: -5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: bottom right;
+    transition: transform 0.2s ease;
+}
+.setting.show ul
+{
+    transform: scale(1);
+}
+.setting ul li
+{
+    height: 25px;
+    background-color: var(--white_col);
+    width: 100px;
+    cursor: pointer;
+    padding: 17px 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.setting ul li:hover
+{
+    background-color: var(--white_gray);
+}
+
+
+/* popup box css */
+.popup_box,
+.view_box
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 9;
+}
+.popup_box .popup,
+.view_box .view_card
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 400px;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup .content,
+.view_card .content
+{
+    width: calc(100% - 15px);
+    background-color: var(--white_col);
+    border-radius: 5px;
+}
+.content header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ccc;
+}
+.content header p
+{
+    font-size: 20px;
+    font-weight: 500;
+}
+.content header i
+{
+    font-size: 23px;
+    cursor: pointer;
+    color: var(--dark_col);
+}
+.content form,
+.content .show_det
+{
+    margin: 15px 25px 35px;
+}
+.content form :where(input, textarea)
+{
+    width: 100%;
+    border: 1px solid var(--red_gray);
+    border-radius: 4px;
+    height: 40px;
+    outline: none;
+    font-size: 17px;
+    padding: 0 15px;
+}
+.content form .row,
+.show_det .row
+{
+    margin-bottom: 15px;
+}
+form .row label,
+.show_det .row label
+{
+    display: block;
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+.content form textarea
+{
+    height: 150px;
+    resize: none;
+    padding: 8px 15px;
+}
+.content form button
+{
+    width: 100%;
+    height: 40px;
+    background-color: var(--primary_col);
+    border: none;
+    color: var(--white_col);
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* hide popup box */
+.popup_box,
+.popup_box .popup,
+.view_box,
+.view_box .view_card
+{
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+}
+
+/* show .popup_box */
+.popup_box.show,
+.popup_box.show .popup,
+.view_box.show,
+.view_box.show .view_card
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* view box css */
+.view_description,
+.view_title
+{
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border: 1px solid var(--dark_col);
+    min-height: 40px;
+    margin-top: 6px;
+    color: var(--red_gray);
+    font-size: 16px;
+}
